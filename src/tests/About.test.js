@@ -17,6 +17,5 @@ test('Teste se a página contém a seguinte imagem de uma Pokédex', () => {
   userEvent.click(screen.getByRole('link', { name: 'About' }));
   const img = screen.getByAltText('Pokédex');
   const imgExpect = 'https://cdn2.bulbagarden.net/upload/thumb/8/86/Gen_I_Pok%C3%A9dex.png/800px-Gen_I_Pok%C3%A9dex.png';
-  console.log(img);
   expect(img.src).toBe(imgExpect);
 });
