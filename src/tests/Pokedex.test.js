@@ -2,6 +2,8 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
+import { Pokedex } from '../pages';
+import userEvent from '@testing-library/user-event';
 
 test('Teste se a página contém um heading h2 com o texto Encountered pokémons', () => {
   renderWithRouter(<App />);
@@ -36,11 +38,10 @@ test('Os botões de filtragem por tipo possuem o data-testid=pokemon-type-button
   expect(buttonsId.length).toBe(7);
 });
 
-// test('É possível clicar no botão de filtragem All', () => {
-//   renderWithRouter(<Pokedex />);
-//   const All = screen.getByRole('button', { name: 'All' });
-//   userEvent.click(All);
-//   filterPokemons = jest.fn();
-//   filterPokemons();
-//   expect(filterPokemons).toHaveBeenCalled();
-// });
+test('É possível clicar no botão de filtragem All', () => {
+  renderWithRouter(<App />);
+  const All = screen.getByRole('button', { name: 'All' });
+  userEvent.click(All);
+  const pokemon = screen.getByText('Pikachu');
+  expect(pokemon).toBeInTheDocument();
+});
