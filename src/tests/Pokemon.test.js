@@ -32,11 +32,6 @@ test('A imagem de favorito ⭐ possui o alt <name> is marked as favorite', () =>
   const img = screen.getByAltText(favoriteAlt);
   expect(img).toBeInTheDocument();
 });
-// test('É exibido na tela um texto com o tipo do pokemon', () => {
-//   renderWithRouter(<Pokemon pokemon={ pokemon } isfavorite />);
-//   const type = screen.getByTestId('pokemon-type');
-//   expect(type).toBeInTheDocument();
-// });
 test('É exibido na tela um texto com o tipo do pokemon', () => {
   renderWithRouter(<Pokemon pokemon={ pokemon } isFavorite={ isFavorite } />);
   const type = screen.getByTestId('pokemon-type', { text: 'Electric' });
