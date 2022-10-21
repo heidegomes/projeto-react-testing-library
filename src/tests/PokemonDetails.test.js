@@ -2,10 +2,8 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from '../renderWithRouter';
-import data from '../data';
 import App from '../App';
 
-const pokemon = data[0];
 const rotaPikachu = '/pokemons/25';
 
 test('É exibido na tela um h2 com o texto <name> Details', () => {
